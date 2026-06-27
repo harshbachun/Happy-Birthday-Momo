@@ -1,0 +1,720 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: #efebea;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/img/paper-background.png");
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+header {
+  position: relative;
+  padding: 40px clamp(20px, 8vw, 100px) 0;
+  margin-bottom: 100px;
+  background: transparent;
+}
+
+.header-para {
+  text-align: justify;
+  font-family: "League Gothic", sans-serif;
+  font-weight: 400;
+  color: #b2676e;
+  font-size: clamp(16px, 2.2vw, 20px);
+  letter-spacing: 0.04em;
+  margin: 0 0 24px 0;
+}
+
+.header-box {
+  position: relative;
+  background-color: #b2676e;
+  border-radius: 8px;
+  height: clamp(200px, 26vw, 340px);
+  overflow: visible;
+}
+
+.header-lily {
+  position: absolute;
+  bottom: clamp(-130px, -18vw, -170px);
+  left: 50%;
+  transform: translateX(-50%);
+  height: clamp(390px, 55vw, 600px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  color: #b2676e;
+  font-size: clamp(48px, 14vw, 160px);
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 16px 0 0;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(24px, 5vw, 60px);
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: clamp(60px, 8vw, 100px);
+  padding-inline: clamp(20px, 5vw, 80px);
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+@keyframes scroll {
+  from {
+    opacity: 0;
+    scale: 0.1;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.card {
+  animation: scroll linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 18px;
+  padding: 16px;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  outline-offset: 4px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.25s ease,
+    opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8);
+}
+
+.card:focus-visible {
+  outline: 2px solid #b2676e;
+}
+
+.card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.card.is-hidden {
+  transform: scale(0.85);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card.is-active {
+  border-radius: 28px;
+
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  width: min(380px, 85vw);
+  margin: 0;
+  cursor: default;
+
+  transition:
+    transform 0.25s cubic-bezier(0.6, 0, 0.2, 1),
+    opacity 0.25s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.card.is-active .envelope {
+  transform: scale(1.18);
+}
+
+/* ============================================================
+   CARD LABELS — .top / .bottom
+   ============================================================ */
+
+.top {
+  font-family: "Caveat Brush", cursive;
+  font-size: 30px;
+  color: hsl(354, 33%, 40%);
+  height: 56px;
+}
+
+.bottom {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  height: 76px;
+}
+
+/* ============================================================
+   CARD LABEL THEMES — per-mood .bottom styles
+   ============================================================ */
+
+.sleep .bottom {
+  font-family: "DynaPuff", system-ui;
+  font-weight: 500;
+  color: #6248c9;
+}
+
+.pain .bottom {
+  font-family: "Rubik Beastly", system-ui;
+  font-weight: 400;
+  color: #d12424;
+}
+
+.overwhelmed .bottom {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  color: #228e9e;
+}
+
+.breathe .bottom {
+  font-size: 40px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  color: #4ab496;
+}
+
+.selfdoubt .bottom {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  color: #6b6297;
+}
+
+.greatday .bottom {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  color: #eac357;
+}
+
+.mad .bottom {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: #e84040;
+}
+
+.badday .bottom {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  color: #6984b3;
+}
+
+.happy .bottom {
+  font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  color: #ffa358;
+}
+
+.fight .bottom {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: #c84040;
+}
+
+.lonely .bottom {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  color: #d08ae8;
+}
+
+.missme .bottom {
+  font-family: "Molle", cursive;
+  font-weight: 400;
+  color: #ec719a;
+}
+
+/* ============================================================
+   ENVELOPE COMPONENT
+   ============================================================ */
+
+.envelope {
+  position: relative;
+  aspect-ratio: 1080 / 1350;
+  height: 100%;
+  width: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.envelope-closed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.wax-seal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.4s ease;
+}
+
+.card.is-active .wax-seal:active {
+  transform: scale(0.96);
+  filter: brightness(0.5);
+  transition:
+    transform 0.1s ease,
+    filter 0.1s ease;
+}
+
+.envelope-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* ============================================================
+   OVERLAY
+   ============================================================ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 15;
+}
+
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+
+.close-btn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: #f3f3f3;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  color: #b2676e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    all 0.35s ease,
+    bottom 0.4s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.close-btn:hover {
+  background-color: #b2676e;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(215, 126, 135, 0.6);
+  transform: translateX(-50%) scale(1.06);
+}
+
+.close-btn:active {
+  transform: translateX(-50%) scale(0.95);
+  background-color: #8e2b34;
+  box-shadow: 0 5px 15px rgba(215, 126, 135, 0.6);
+}
+
+/* ============================================================
+   LETTER CARD
+   ============================================================ */
+
+.letter-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+  width: min(480px, 88vw);
+  height: min(678px, 88vh);
+  overflow: hidden;
+  background-color: #efebea;
+  border-radius: 8px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  padding: clamp(28px, 6vw, 48px) clamp(24px, 6vw, 52px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.letter-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/img/paper-background.png");
+  background-size: auto;
+  background-repeat: repeat;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.letter-card.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-text {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow-y: auto;
+  font-family: "Caveat Brush", cursive;
+  font-size: 30px;
+  line-height: 1.8;
+  color: #4b2b2e;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* ============================================================
+   LILY SECTION
+   ============================================================ */
+
+.lily-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(100px, 15vw, 200px);
+  margin-bottom: clamp(80px, 12vw, 150px);
+}
+
+.lily-box {
+  position: relative;
+  background-color: #b2676e;
+  border-radius: 8px;
+  width: clamp(200px, 50vw, 340px);
+  height: clamp(320px, 48vw, 550px);
+  overflow: visible;
+}
+
+.lily-pair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: clamp(380px, 58vw, 650px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+
+  .card,
+  .envelope-closed,
+  .wax-seal,
+  .envelope-open,
+  .letter-card,
+  .overlay,
+  .close-btn {
+    transition: none;
+  }
+}
+
+footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px;
+  padding: 60px 100px;
+  background: #b2676e;
+}
+
+.footer-lily {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 800px;
+}
+
+.footer-memoji {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: #c98a90;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-para {
+  font-family: "League Gothic", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.footer-name {
+  font-family: "Caveat Brush", cursive;
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.birthday-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 100px;
+  background: #e44575;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.birthday-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/img/card-texture.png");
+  background-repeat: repeat;
+  background-size: cover;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.birthday-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.birthday-title {
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 130px;
+  color: #ffffff;
+}
+
+.birthday-date {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 35px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 30px;
+  letter-spacing: 6px;
+}
+
+.birthday-lily {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.birthday-para {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0 100px;
+  margin-top: 48px;
+  text-wrap: wrap;
+}
+
+.baby-momo {
+  width: 280px;
+  display: block;
+  margin: 0 auto;
+}
+
+.gift-prompt {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  margin: 24px 0 12px;
+}
+
+.gift-btn {
+  padding: 17px 40px;
+  border-radius: 40px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: transparent;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-family: "League Gothic", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  transition: all 0.35s ease;
+}
+
+.gift-btn:hover {
+  letter-spacing: 4px;
+  background-color: #ffffff;
+  color: #e44575;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.06);
+}
+
+.gift-btn:active {
+  transform: scale(0.95);
+  background-color: #ebebeb;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.gift-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 15;
+}
+
+.gift-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gift-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  width: min(380px, 85vw);
+  background: #fff;
+  border-radius: 28px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.25s cubic-bezier(0.6, 0, 0.2, 1),
+    opacity 0.25s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.gift-card.is-visible {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gift-card-text {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.7;
+  color: #4b2b2e;
+  margin: 0 0 12px;
+}
+
+.gift-card-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.gift-close-btn {
+  margin-top: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #e44575;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.gift-close-btn:hover {
+  transform: scale(1.08);
+  background: #c73560;
+}
+
+.gift-close-btn:active {
+  transform: scale(0.95);
+}

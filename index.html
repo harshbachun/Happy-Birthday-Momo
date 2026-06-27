@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mood-based Letters</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bebas+Neue&family=Caveat+Brush&family=Cinzel:wght@800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DynaPuff:wght@500&family=Fraunces:ital,opsz,wght@1,9..144,800&family=Great+Vibes&family=League+Gothic&family=Lobster+Two:wght@700&family=Molle:ital@1&family=Montserrat:wght@100..900&family=Oswald:wght@700&family=Playfair+Display:wght@800&family=Rubik+Beastly&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="overlay"></div>
+
+    <section class="birthday-section">
+      <img class="birthday-lily" src="assets/img/lily.png" alt="lily" />
+      <p class="birthday-para">
+        To the girl who carries big dreams and even bigger warmth, and who means
+        more to me than she probably knows.
+      </p>
+      <img class="baby-momo" src="assets/img/baby-momo.png" />
+      <h1 class="birthday-title">Happy 19th Birthday!</h1>
+      <p class="birthday-date">28.JUNE.2026</p>
+      <p class="gift-prompt">Do you want to see your gift?</p>
+      <button class="gift-btn" id="giftBtn">Open Gift</button>
+    </section>
+
+    <div class="gift-overlay" id="giftOverlay"></div>
+
+    <div class="gift-card" id="giftCard">
+      <p class="gift-card-text">
+        I have something for you, waiting to give to you in person.
+      </p>
+      <p class="gift-card-text">Find me and it's yours.</p>
+      <button class="gift-close-btn" id="giftCloseBtn">✕</button>
+    </div>
+    <header>
+      <p class="header-para">
+        Some days arrive softly, and some days arrive all at once. Some moments
+        feel worth holding onto forever, while others just need to be gotten
+        through. Below are letters written for all of it. For the nights sleep
+        won't come and the days your own mind feels like the hardest place to
+        be. For the times everything feels like too much, or the quiet gets a
+        little too loud. For the good days that deserve to be celebrated, and
+        the hard ones that deserve to be witnessed. Each envelope holds
+        something written with you in mind, because I want you to know that
+        whatever happened, happens, or should happen, the way I feel about you
+        hasn't wavered. I'm not asking for anything in return. I just wanted you
+        to know that somewhere, someone is rooting for you completely. And no
+        matter which envelope you open, I hope it reminds you that you are
+        thought of, cared for, and deeply, quietly loved.
+      </p>
+
+      <div class="header-box">
+        <img class="header-lily" src="assets/img/lily.png" alt="lily" />
+      </div>
+
+      <h1>OPEN WHEN...</h1>
+    </header>
+
+    <div class="grid">
+      <div class="card sleep">
+        <span class="top">you can't</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedSleep.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealSleep.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openSleep.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">SLEEP</span>
+      </div>
+
+      <div class="card breathe">
+        <span class="top">you need a moment to</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedBreathe.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealBreathe.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openBreathe.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">BREATHE</span>
+      </div>
+
+      <div class="card overwhelmed">
+        <span class="top">you're</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedOverwhelmed.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealOverwhelmed.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openOverwhelmed.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">OVERWHELMED</span>
+      </div>
+
+      <div class="card badday">
+        <span class="top">you've had a</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedBadDay.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealBadDay.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openBadDay.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">BAD DAY</span>
+      </div>
+
+      <div class="card pain">
+        <span class="top">you're having awful</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedPain.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealPain.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openPain.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">PERIOD PAIN</span>
+      </div>
+
+      <div class="card selfdoubt">
+        <span class="top">you're</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedSelfDoubt.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealSelfDoubt.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openSelfDoubt.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">DOUBTING YOURSELF</span>
+      </div>
+
+      <div class="card lonely">
+        <span class="top">you're feeling</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedLonely.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealLonely.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openLonely.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">LONELY</span>
+      </div>
+
+      <div class="card fight">
+        <span class="top">we</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedFight.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealFight.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openFight.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">FIGHT</span>
+      </div>
+
+      <div class="card mad">
+        <span class="top">you're</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedMad.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealMad.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openMad.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">MAD</span>
+      </div>
+
+      <div class="card happy">
+        <span class="top">you're</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedHappy.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealHappy.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openHappy.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">HAPPY</span>
+      </div>
+
+      <div class="card greatday">
+        <span class="top">you've had a</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedGreatDay.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealGreatDay.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openGreatDay.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">GREAT DAY</span>
+      </div>
+
+      <div class="card missme">
+        <span class="top">you</span>
+        <div class="envelope">
+          <img
+            class="envelope-closed"
+            src="assets/img/envelope-closedMissMe.png"
+            alt="envelope-closed"
+          />
+          <img
+            class="wax-seal"
+            src="assets/img/wax-sealMissMe.png"
+            alt="wax-seal"
+          />
+          <img
+            class="envelope-open"
+            src="assets/img/envelope-openMissMe.png"
+            alt="envelope-open"
+          />
+        </div>
+        <span class="bottom">MISS ME</span>
+      </div>
+    </div>
+    <section class="lily-section">
+      <div class="lily-box">
+        <img class="lily-pair" src="assets/img/lily-pair.png" alt="lily pair" />
+      </div>
+    </section>
+
+    <footer>
+      <img class="footer-lily" src="assets/img/lily.png" alt="lily" />
+
+      <div class="footer-content">
+        <img
+          class="footer-memoji"
+          src="assets/img/Harsh-memoji.png"
+          alt="Harsh"
+        />
+        <div class="footer-text">
+          <p class="footer-para">
+            These letters were written with you in mind, but I am always here
+            too.<br />
+            If you ever need something a little more real — a voice, a hand, a
+            presence —<br />
+            you know exactly where to find me.
+          </p>
+          <p class="footer-name">— H</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cards.js"></script>
+  </body>
+</html>
