@@ -612,9 +612,11 @@ footer {
   padding: 17px 40px;
   border-radius: 40px;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 0px solid transparent;
   background-color: transparent;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 12px rgba(0, 0, 0, 0.35),
+    inset 0 0 6px rgba(255, 255, 255, 0.8);
   letter-spacing: 2px;
   font-size: 18px;
   font-family: "League Gothic", sans-serif;
